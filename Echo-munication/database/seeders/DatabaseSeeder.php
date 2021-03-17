@@ -3,6 +3,11 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Category;
+use App\Models\Comment;
+use App\Models\Like;
+use App\Models\Tutorial;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +18,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $users = User::factory(5)->create();
+        $categories = Category::factory(4)->create();
+
+        $tutorials = Tutorial::factory(10)->make()
+        ->each(function ($tutorial) use ($users, $categories) {
+            $tutorial->user_id = $users->random()->id;
+            $tutorial->category_id = $categories->random()->id;
+            $tutorial->save();
+        });
+
+        Comment::factory(20)->make()
+        ->each(function ($comment) use ($tutorials, $users) {
+            $comment->tutorial_id = $tutorials->random()->id;
+            $comment->user_id = $users->random()->id;
+            $comment->save();
+        });
+
+        Like::factory(10)->make()
+        ->each(function ($like) use ($tutorials, $users) {
+            $like->tutorial_id = $tutorials->random()->id;
+            $like->user_id = $users->random()->id;
+            $like->save();
+        });
+
     }
 }
