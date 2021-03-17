@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TutorialController;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,6 +20,7 @@ use App\Http\Controllers\TutorialController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::resource('tests', TestController::class);
 
 //API ROUTE CATEGORY
 Route::middleware('api')->group(function () {
