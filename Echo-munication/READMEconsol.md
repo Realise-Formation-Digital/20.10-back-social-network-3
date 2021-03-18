@@ -1,6 +1,7 @@
 # back-social-network-3
 
 LINUX
+git clone https://github.com/Realise-Formation-Digital/back-social-network-3.git
 composer install
 composer require laravel/ui
 php artisan ui bootstrap
