@@ -6,66 +6,17 @@
         </li>
         <li class="breadcrumb-item active">Vue d'ensemble</li>
       </ol>
-
       <div class="row">
-        <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-primary o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fas fa-fw fa-comments"></i>
-              </div>
-              <div class="mr-5">Javascript</div>
-            </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">Lorem Lipsum</span>
-              <span class="float-right">
-                <i class="fas fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-warning o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fas fa-fw fa-list"></i>
-              </div>
-              <div class="mr-5">PHP</div>
-            </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">Lorem Lipsum</span>
-              <span class="float-right">
-                <i class="fas fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-success o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fas fa-fw fa-shopping-cart"></i>
-              </div>
-              <div class="mr-5">HTML</div>
-            </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">Lorem Lipsum</span>
-              <span class="float-right">
-                <i class="fas fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-3">
+        <div  v-for="category in categories" :key="category.id" class="col-xl-3 col-sm-6 mb-3">
           <div class="card text-white bg-danger o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
                 <i class="fas fa-fw fa-life-ring"></i>
               </div>
-              <div class="mr-5">Laravel</div>
+              <div class="mr-5">{{ category.title }}</div>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">Lorem Lipsum</span>
+              <img :src="`${category.image}`" :alt="`${category.title }`" class="table-image" />
               <span class="float-right">
                 <i class="fas fa-angle-right"></i>
               </span>
@@ -75,3 +26,19 @@
       </div>
   </div>
 </template>
+<script>
+    export default {
+        data() {
+            return {
+                categories: []
+            }
+        },
+        created() {
+            this.axios
+                .get('http://localhost:8000/api/categories/')
+                .then(response => {
+                    this.categories = response.data;
+                });
+        }
+      }
+</script>
