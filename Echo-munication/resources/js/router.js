@@ -5,6 +5,7 @@ import Home from './views/Home.vue';
 import About from './views/About.vue';
 import Categories from './views/Categories.vue';
 import Favoris from './views/Favoris.vue';
+import Connexion from './views/Connexion.vue';
 
 
 Vue.use(Router);

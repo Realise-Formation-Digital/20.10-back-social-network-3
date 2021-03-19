@@ -11087,13 +11087,13 @@ body {
 }
 
 .sidebar .nav-item .nav-link {
-  color: rgba(255, 4, 4, 0.5);
+  color: rgba(255, 251, 0, 0.897);
 }
 
 .sidebar .nav-item .nav-link:active,
 .sidebar .nav-item .nav-link:focus,
 .sidebar .nav-item .nav-link:hover {
-  color: rgba(2, 19, 172, 0.75);
+  color: rgba(233, 109, 8, 0.836);
 }
 
 .sidebar.toggled {
@@ -11229,7 +11229,7 @@ body {
   margin-bottom: 0;
   /* Override default `<label>` margin */
   line-height: 1.5;
-  color: #495057;
+  color: #ec0ad9;
   border: 1px solid transparent;
   border-radius: 0.25rem;
   transition: all 0.1s ease-in-out;
