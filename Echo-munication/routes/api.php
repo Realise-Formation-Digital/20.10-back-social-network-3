@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TutorialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+//API ROUTE CATEGORY
+Route::middleware('api')->group(function () {
+    Route::resource('categories', CategoryController::class);
+});
+
+//API ROUTE LAST 5 TUTORIALS
+Route::middleware('api')->group(function () {
+    Route::resource('tutorials', TutorialController::class);
 });
