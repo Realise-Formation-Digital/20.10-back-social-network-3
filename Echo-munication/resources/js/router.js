@@ -32,6 +32,12 @@ const routes = [
         component: Favoris,
     },
 
+    {
+        path: '/connexion',
+        name: 'connexion',
+        component: Connexion,
+    },
+
 ];
 
 const router = new Router({

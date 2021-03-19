@@ -2230,6 +2230,10 @@ var routes = [{
   path: '/favoris',
   name: 'favoris',
   component: _views_Favoris_vue__WEBPACK_IMPORTED_MODULE_3__.default
+}, {
+  path: '/connexion',
+  name: 'connexion',
+  component: Connexion
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_5__.default({
   mode: 'history',
@@ -21492,6 +21496,12 @@ var render = function() {
         "router-link",
         { staticClass: "nav-link", attrs: { to: "/favoris", exact: "" } },
         [_vm._v("Favoris")]
+      ),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        { staticClass: "nav-link", attrs: { to: "/connexion", exact: "" } },
+        [_vm._v("connexion")]
       ),
       _vm._v(" "),
       _vm._m(0),
