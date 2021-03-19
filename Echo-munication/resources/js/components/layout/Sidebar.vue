@@ -10,8 +10,28 @@
 		<li class="nav-item">
             <router-link to="/categories" class="nav-link" exact>
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>Catégories</span>
+                <span>LES DERNIERS TUTORIELS</span>
             </router-link>
         </li>
+        <li v-for="tutorial in tutorials" :key="tutorial.id" class="nav-item">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span><a href="" class="nav-link">{{ tutorial.title }}</a></span>
+            </li>
 	</ul>
 </template>
+<script>
+    export default {
+        data() {
+            return {
+                tutorials: []
+            }
+        },
+        created() {
+            this.axios
+                .get('http://localhost:8000/api/tutorials/')
+                .then(response => {
+                    this.tutorials = response.data;
+                });
+        }
+      }
+</script>
