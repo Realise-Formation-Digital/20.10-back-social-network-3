@@ -5,7 +5,7 @@
         <li class="breadcrumb-item">
           <router-link to="/">Tutoriels</router-link>
         </li>
-        <li class="breadcrumb-item active">Categories</li>
+        <li class="breadcrumb-item active">Favoris</li>
       </ol>
 
       <div class="card mb-3">
@@ -38,6 +38,6 @@
 <script>
 
 export default ({
-   name: 'Categories'
+   name: 'Favoris'
 })
 </script>
