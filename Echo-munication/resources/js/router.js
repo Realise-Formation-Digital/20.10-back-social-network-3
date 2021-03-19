@@ -2,6 +2,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
+import About from './views/About.vue';
+import Categories from './views/Categories.vue';
+
 
 Vue.use(Router);
 
@@ -14,8 +17,14 @@ const routes = [
   	{ // new route for our categories page
         path: '/categories',
         name: 'categories',
-        component: () => import('./views/Categories.vue'), // Vue we just created
+        component:Categories,
     },
+    {
+        path: '/about',
+        name: 'about',
+        component: About,
+    },
+
 ];
 
 const router = new Router({
