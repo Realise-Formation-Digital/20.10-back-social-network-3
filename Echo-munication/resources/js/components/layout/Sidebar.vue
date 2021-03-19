@@ -10,13 +10,19 @@
 		<li class="nav-item">
             <router-link to="/categories" class="nav-link" exact>
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>LES DERNIERS TUTORIELS</span>
+            </router-link>
+        </li>
+        <li class="nav-item">
+            <router-link to="/favoris" class="nav-link" exact>
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Favoris</span>
             </router-link>
         </li>
         <li v-for="tutorial in tutorials" :key="tutorial.id" class="nav-item">
             <i class="fas fa-fw fa-chart-area"></i>
+                <span>LES DERNIERS TUTORIELS</span>
             <span><a href="" class="nav-link">{{ tutorial.title }}</a></span>
-            </li>
+        </li>
 	</ul>
 </template>
 <script>
