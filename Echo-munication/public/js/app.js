@@ -21097,11 +21097,9 @@ var staticRenderFns = [
       "nav",
       { staticClass: "sb-topnav navbar navbar-expand navbar-dark bg-dark" },
       [
-        _c(
-          "a",
-          { staticClass: "navbar-brand", attrs: { href: "index.html" } },
-          [_vm._v("Echo-comunication")]
-        ),
+        _c("a", { staticClass: "navbar-brand", attrs: { href: "/" } }, [
+          _vm._v("Echo-comunication")
+        ]),
         _vm._v(" "),
         _c(
           "button",
