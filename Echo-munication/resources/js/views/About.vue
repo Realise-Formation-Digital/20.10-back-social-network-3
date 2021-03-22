@@ -82,7 +82,8 @@
 <script>
   export default {
       name: 'About',
-    data: () => ({
+
+     data: () => ({
       loading: false,
       selection: 1,
     }),
