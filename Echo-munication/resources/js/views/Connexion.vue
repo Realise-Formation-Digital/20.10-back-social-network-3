@@ -47,13 +47,14 @@
     <v-btn
       color="error"
       class="mr-4"
+      elevation="10"
       @click="reset"
     >
       Reset Form
     </v-btn>
 
     <v-btn
-      color="warning"
+      color="blue"
       @click="resetValidation"
     >
       Reset Validation

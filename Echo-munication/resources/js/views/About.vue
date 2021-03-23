@@ -3,6 +3,8 @@
 <template>
   <v-card
     :loading="loading"
+    elevation="10"
+    hover
     class="mx-auto my-12"
     max-width="374"
   >
@@ -76,7 +78,9 @@
         Reserve
       </v-btn>
     </v-card-actions>
-  </v-card>
+  </v-card> 
+
+  
 </template>
 
 <script>
