@@ -2,8 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TutorialController;
+=======
+use App\Models\TestApiController; 
+>>>>>>> Chris
 
 
 /*
@@ -21,6 +25,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::resource('tests', TestController::class);
+<<<<<<< HEAD
 
 //API ROUTE CATEGORY
 Route::middleware('api')->group(function () {
@@ -31,3 +36,5 @@ Route::middleware('api')->group(function () {
 Route::middleware('api')->group(function () {
     Route::resource('tutorials', TutorialController::class);
 });
+=======
+>>>>>>> Chris
