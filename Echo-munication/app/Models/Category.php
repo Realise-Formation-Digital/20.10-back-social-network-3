@@ -22,9 +22,9 @@ class Category extends Model
     /**
      * Relations
      */
-    public function posts()
+    public function tutorials()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Tutorial::class);
     }
 
 }
