@@ -8,6 +8,7 @@ import Favoris from './views/Favoris.vue';
 import Connexion from './views/Connexion.vue';
 
 
+
 Vue.use(Router);
 
 const routes = [

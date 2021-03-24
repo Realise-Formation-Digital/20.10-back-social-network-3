@@ -85,7 +85,7 @@
 
 <script>
   export default {
-      name: 'About',
+      name: 'ProfilSimon',
 
      data: () => ({
       loading: false,
