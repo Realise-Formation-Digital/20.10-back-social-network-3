@@ -10,8 +10,8 @@ class CategoryController extends Controller
     //LIST ALL CATEGORY
     public function index()
     {
-        $categories = Category::all()->toArray();
-        return array_reverse($categories);      
+        $categories = Category::has('tutorials')->get();
+        return response()->json($categories);
     }
     //ADD NEW CATEGORY
     public function store(Request $request)
@@ -25,10 +25,9 @@ class CategoryController extends Controller
         return response()->json('CATEGORIE AJOUTEE');
     }
     //SHOW CATEGORY BY ID
-    public function show($id)
+    public function show(Category $category)
     {
-        $category = Category::find($id);
-        return response()->json($category);
+        //
     }
     //UPDATE CATEGORY
     public function update($id, Request $request)

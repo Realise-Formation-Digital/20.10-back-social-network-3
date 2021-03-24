@@ -7,19 +7,13 @@
         <li class="breadcrumb-item active">Vue d'ensemble</li>
       </ol>
       <div class="row">
-        <div  v-for="category in categories" :key="category.id" class="col-xl-3 col-sm-6 mb-3">
+        <div  v-for="(category, index) in categories" :key="index" class="col-xl-3 col-sm-6 mb-3">
           <div class="card text-white bg-danger o-hidden h-100">
             <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fas fa-fw fa-life-ring"></i>
-              </div>
-              <div class="mr-5">{{ category.title }}</div>
+              <div class="mr-5"><router-link :to="`/category/${category.id}/tutorials`">{{ category.title }}</router-link></div>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
               <img :src="`${category.image}`" :alt="`${category.title }`" class="table-image" />
-              <span class="float-right">
-                <i class="fas fa-angle-right"></i>
-              </span>
             </a>
           </div>
         </div>
@@ -28,17 +22,22 @@
 </template>
 <script>
     export default {
+      name: 'Home',
         data() {
-            return {
-                categories: []
+            return{
+                categories: ''
             }
         },
         created() {
-            this.axios
+            this.getCategories();
+        },
+        methods:{
+            getCategories(){
+              this.axios
                 .get('http://localhost:8000/api/categories/')
-                .then(response => {
-                    this.categories = response.data;
-                });
+                    .then(res => this.categories = res.data)
+                    .catch(err => console.log(err))
+            }
         }
-      }
+    }
 </script>

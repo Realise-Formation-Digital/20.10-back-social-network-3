@@ -2,13 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
 
-    use HasFactory;
+    use HasFactory, Notifiable, HasApiTokens;
 
     protected $fillable = [
         'name',
@@ -23,6 +25,10 @@ class User extends Authenticatable
         'updated_at',
         'remember_token',
         'password'
+    ];
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
     ];
 
     /**
