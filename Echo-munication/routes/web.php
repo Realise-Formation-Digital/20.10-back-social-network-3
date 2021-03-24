@@ -30,3 +30,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/greeting', function () {
+    return 'Hello World';
+});
+
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::view("contact",'contact');
+
+Route::view("tuto",'tuto');
