@@ -1,8 +1,9 @@
 <template>
 	<div>
-		<Header />
-
-		<div id="wrapper">
+        
+            <Header />
+           
+        <div id="wrapper">
 			<Sidebar />
 
 			<div id="content-wrapper">
@@ -21,6 +22,7 @@ import Sidebar from "./components/layout/Sidebar.vue";
 import Footer from "./components/layout/Footer.vue";
 
 export default {
+	name: 'App',
 	components: {
 		Header,
 		Sidebar,
@@ -28,6 +30,13 @@ export default {
 	},
 	created() {
 		document.querySelector("body").style.backgroundColor = "#fff";
+<<<<<<< HEAD
 	}
 };
 </script>
+=======
+	},
+
+};
+</script>
+>>>>>>> main
