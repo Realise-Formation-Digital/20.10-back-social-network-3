@@ -1,22 +1,52 @@
-<!-- Header.vue -->
 <template>
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">Echo-comunications</a>
-        <router-link to="/about" class="nav-link" exact>A propos</router-link>
-        <router-link to="/favoris" class="nav-link" exact>Favoris</router-link>
-        <router-link to="/login" class="nav-link" exact>Login</router-link>
-        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-            <div class="input-group">
-                <input class="form-control" type="text" placeholder="Rechercher" aria-label="Search" aria-describedby="basic-addon2" />
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
-        </form>
-    </nav>
+        <v-app-bar
+        app
+        color="primary"
+        dark
+        >
+        <v-toolbar-title>Echo'munication</v-toolbar-title>
+        <v-spacer></v-spacer>
+        
+        
+
+        <v-btn
+            v-for="link in links" :key="link.name"
+            :href="link.link"
+            text
+        >
+            <span class="mr-2">
+              <!-- <router-link :to="{link.link}">{{ link.name }}</router-link> -->
+              {{ link.name }}
+            </span>
+        </v-btn>
+
+    </v-app-bar>
 </template>
+
 <script>
-    export default {
-        name: 'Header',
+export default {
+    name: 'AppHeader',
+    data: function () {
+      return {
+        links: [
+          { 
+            name: 'Accueil',
+            link: '#',
+          },
+          { 
+            name: 'Tutoriels',
+            link: '#',
+          },
+          { 
+            name: 'Mes favoris',
+            link: '#',
+          },
+          { 
+            name: 'Se connecter',
+            link: '#',
+          },
+        ]
+      }
     }
+}
 </script>
