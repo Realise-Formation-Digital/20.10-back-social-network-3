@@ -1922,7 +1922,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    this.axios.get('http://localhost:8000/api/tutorials/').then(function (response) {
+    this.axios.get('http://localhost:8001/api/tutorials/').then(function (response) {
       _this.tutorials = response.data;
     });
   }
@@ -2139,7 +2139,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    this.axios.get('http://localhost:8000/api/categories/').then(function (response) {
+    this.axios.get('http://localhost:8001/api/categories/').then(function (response) {
       _this.categories = response.data;
     });
   }

@@ -27,6 +27,8 @@
   </div>
 </template>
 <script>
+  import URLAPI from "../../app"
+
     export default {
         data() {
             return {
@@ -35,7 +37,7 @@
         },
         created() {
             this.axios
-                .get('http://localhost:8000/api/categories/')
+                .get(URLAPI + 'categories/')
                 .then(response => {
                     this.categories = response.data;
                 });

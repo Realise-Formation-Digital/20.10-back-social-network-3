@@ -22,7 +22,7 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->unique()->randomElement(['Javascript', 'HTML', 'CSS', 'PHP',]),
+            'title' => $this->faker->unique()->randomElement(['Javascript', 'HTML', 'CSS', 'PHP', 'Docker', 'Laravel']),
             'image' => 'http://via.placeholder.com/200x200',
         ];
     }

@@ -20,6 +20,8 @@
 	</ul>
 </template>
 <script>
+import URLAPI from "../../app"
+
     export default {
         data() {
             return {
@@ -28,7 +30,7 @@
         },
         created() {
             this.axios
-                .get('http://localhost:8000/api/tutorials/')
+                .get(URLAPI + 'tutorials/')
                 .then(response => {
                     this.tutorials = response.data;
                 });

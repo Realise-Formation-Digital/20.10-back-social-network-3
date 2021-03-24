@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $users = User::factory(5)->create();
-        $categories = Category::factory(4)->create();
+        $categories = Category::factory(6)->create();
 
         $tutorials = Tutorial::factory(10)->make()
         ->each(function ($tutorial) use ($users, $categories) {
