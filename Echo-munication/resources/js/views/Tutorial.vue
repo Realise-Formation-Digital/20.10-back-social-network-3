@@ -1,53 +1,42 @@
 <template>
-
-        <div>
-            <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <router-link to="/">Tutorials</router-link>
-        </li>
-        <li class="breadcrumb-item active">{{ tutorial.title }}</li>
-            </ol>
-
-            <!-- Title -->
-            <h1 class="mt-4">{{ tutorial.title }}</h1>
-
-            <!-- Author -->
-            <p class="alert alert-info" style="width: fit-content; padding: 5px; color: #142d31;" v-if="tutorial.category">
-                {{ tutorial.category.title }}
-            </p>
-
-            <hr>
-
-            <!-- Date/Time Comments Likes-->
-            <p>Publié <strong class="badge badge-primary p-1">{{ tutorial.added_at }}</strong> à <strong class="badge badge-danger p-1"> 12:00 PM</strong>
-                <span class="float-right"><strong class="badge badge-info p-1">{{ comments.length }}</strong> commentaires</span></p>
-                <span class="float-right"><strong class="badge badge-info p-1">{{ tutorial.likes_count }}</strong> j'aime</span>
-
-            <hr>
-
-            <!-- Preview Image -->
-            <img class="img-fluid rounded" :src="`${tutorial.image}`" style="width:300px;max-height:300px" alt="">
-
-            <hr>
-
-            <!-- Tutorial Content -->
-            {{ tutorial.content }}
-
-            <hr>
-
-           <!-- Comment(s) -->
-            <div class="media mb-4" v-for="(comment, index) in tutorial.comments" :key="index">
-                <img class="d-flex mr-3 rounded-circle" :src="'/img/'+comment.user.avatar" alt="">
-                <div class="media-body">
-                    <h5 class="mt-0">{{ comment.user.name }}</h5>
-                    {{ comment.content }}
-                </div>
-            </div>
-
-        </div>
-
+    <v-container style = "margin-bottom: 100px">
+        <v-layout row>
+            <v-flex s12>
+                <v-card>
+                    <v-img
+                    height="500px"
+                    :src="`/images/${tutorial.image}`">
+                    </v-img>
+                    <v-card-text>
+                        <h1>
+                        {{ tutorial.title }}
+                        </h1>
+                        <v-divider></v-divider>
+                        <h3 v-if="tutorial.category">{{ tutorial.category.title }}</h3>
+                        <v-divider></v-divider>
+                        <h3>Auteur: <span>{{ tutorial.user.name }}</span></h3>
+                        <v-divider></v-divider>
+                        <v-img src="/images/likes.jpg" :alt="likes" max-width="30" max-height="30" style="vertical-align: middle"></v-img>{{ tutorial.likes_count }}
+                        <v-img src="/images/comment.png" :alt="comments" max-width="30" max-height="30" style="vertical-align: middle"></v-img>{{ comments.length }}
+                    </v-card-text>
+                    <v-card-text>
+                        <p>
+                        {{ tutorial.content }}
+                        </p>
+                    </v-card-text>
+                        <v-divider></v-divider>
+                        <h3 class="text-center"><span>Commentaires</span></h3>
+                    <v-card-text v-for="(comment, index) in tutorial.comments" :key="index">
+                        <v-img :src="`${comment.user.avatar}`" max-width="80" max-height="80" class="d-flex mr-3 rounded-circle"></v-img>
+                        <h5>{{ comment.user.name }}</h5>
+                        <p>{{ comment.content }}</p>
+                        <v-divider></v-divider>
+                    </v-card-text>
+                </v-card>
+            </v-flex>
+        </v-layout>
+    </v-container>
 </template>
-
 <script>
     export default {
         name: 'Tutorial',

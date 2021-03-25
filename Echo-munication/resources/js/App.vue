@@ -1,31 +1,21 @@
 <template>
-	<div>
-        
-            <Header />
-           
-        <div id="wrapper">
-			<Sidebar />
+  <div id="app">
+	  <font-awesome-icon icon="user-secret" />
+	  <Header />
+   <router-view></router-view>
+	  <Footer />
 
-			<div id="content-wrapper">
-				<router-view></router-view> <!-- container-fluid div Replaced by router-view -->
-				
-
-				<Footer />
-			</div>
-		</div>
-	</div>
+  </div>
 </template>
 
 <script>
 import Header from "./components/layout/Header.vue";
-import Sidebar from "./components/layout/Sidebar.vue";
 import Footer from "./components/layout/Footer.vue";
 
 export default {
 	name: 'App',
 	components: {
 		Header,
-		Sidebar,
 		Footer
 	},
 	created() {

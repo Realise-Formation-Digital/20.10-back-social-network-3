@@ -3,7 +3,6 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
 import About from './views/About.vue';
-import Categories from './views/Categories.vue';
 import CategoryTutorials from "./views/CategoryTutorials.vue";
 import Tutorial from "./views/Tutorial.vue";
 import Favoris from './views/Favoris.vue';
@@ -20,11 +19,6 @@ const router = new Router({
         component: Home,
     },
   	{
-        path: '/categories',
-        name: 'categories',
-        component:Categories,
-    },
-    {
         path: '/category/:id/tutorials',
         component: CategoryTutorials,
         name: CategoryTutorials
@@ -38,11 +32,6 @@ const router = new Router({
         path: '/about',
         name: 'about',
         component: About,
-    },
-    {
-        path: '/favoris',
-        name: 'favoris',
-        component: Favoris,
     },
     {
         path: '/login',
