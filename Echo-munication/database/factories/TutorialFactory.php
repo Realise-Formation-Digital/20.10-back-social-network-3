@@ -23,8 +23,8 @@ class TutorialFactory extends Factory
     {
         return [
             'title' => $this->faker->unique()->name,
-            'content' => $this->faker->text($maxNbChars = 200),
-            'image' => 'http://via.placeholder.com/80x80',
+            'content' => $this->faker->text(200),
+            'image' => 'tutorial.jpg',
             'video' => $this->faker->isbn10,
         ];
     }

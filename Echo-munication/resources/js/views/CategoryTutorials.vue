@@ -1,36 +1,44 @@
 <template>
-    <div class="row">
-        <div class="col-md-8">
-            <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <router-link to="/">Tutorials</router-link>
-        </li>
-        <li class="breadcrumb-item active"></li>
-            </ol>
-            <div :key="tutorial.id" v-for="tutorial in tutorials">
-                <img :src="`${tutorial.image}`" alt="Generic placeholder image">
-                <div>
-                    <h4 class="mt-0">
-                        <router-link :to="'/tutorial/' + tutorial.id">{{ tutorial.title }}</router-link>
-                    </h4>
-                    {{ tutorial.content.substr(0, 180)}}
-                    <ul class="list-inline list-unstyled d-flex post-info">
-                        <li><span><i class="fa fa-user"></i> Auteur : <strong class="text-primary" v-if="tutorial.user">{{ tutorial.user.name }}</strong> </span>
-                        </li>
-                        <li> | </li>
-                        <li><span><i></i> {{ tutorial.added_at }} </span></li>
-                        <li> | </li>
-                        <span><i></i> {{ tutorial.comments_count }} commentaires</span>
-                        <li> | </li>
-                        <span><i></i> {{ tutorial.likes_count }} j'aime</span>
+<v-container style = "margin-bottom: 100px" fill-height>
+    <v-row>
+        <v-row class="mt-14">
+            <v-col offset="">
+                <h2 class="text-center">Les tutoriels dans la catérgorie sélectionnée</h2>
+            </v-col>
+        </v-row>
+    <v-row>
+        <v-col
+          col="12"
+          sm="12"
+          md="4"
+          lg="4"
+          :key="tutorial.id" v-for="tutorial in tutorials"
+        >
+          <v-card hover class="mb-5">
+            
+            <v-row>
+              <v-col cols="1" :style="{'background-color': category.color}">
+              </v-col>
+              <v-col>
+                <v-img :src="`/images/${tutorial.image}`" :alt="`${tutorial.title }`" max-width="200" max-height="200"></v-img>
+                <v-card-title><router-link :to="'/tutorial/' + tutorial.id">{{ tutorial.title }}</router-link></v-card-title>
+                <v-card-text>
+                    {{ tutorial.content.substr(0, 100)}}
+                    <v-divider class="mx-4"></v-divider>
+                    <v-card-title v-if="tutorial.user">Auteur: {{ tutorial.user.name }}</v-card-title>
+                    <v-divider class="mx-4"></v-divider>
+                    <v-img src="/images/likes.jpg" :alt="likes" max-width="30" max-height="30" style="vertical-align: middle"></v-img>{{ tutorial.likes_count }}
+                </v-card-text>
+ 
+              </v-col>
+            </v-row>
 
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-row>
+</v-container>
 </template>
-
 <script>
 import Home from "./Home"
     export default {

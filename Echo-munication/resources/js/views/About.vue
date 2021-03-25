@@ -1,42 +1,72 @@
-<!-- Categories.vue -->
 <template>
-	<div class="container-fluid">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <router-link to="/">Tutoriels</router-link>
-        </li>
-        <li class="breadcrumb-item active">Categories</li>
-      </ol>
-
-      <div class="card mb-3">
-            <div class="card-header d-flex">
-              <i class="fas fa-chart-area"></i>
-              Tuto
-            </div>
-            <div class="card-body">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <td>#</td>
-                            <td>Titre</td>
-                            <td>Auteur</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Lorem Lipsum</td>
-                            <td>Lorem Lipsum</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+  <v-container class="grey lighten-5">
+        
+            <v-row class="mt-14">
+                <v-col offset="">
+                <h2 class="text-center">A Propos de Nous</h2>
+                </v-col>
+            </v-row>
+        
+    <v-row no-gutters>
+      <v-col>
+        <v-card
+          class="pa-20"
+        >
+          <ProfilElisa />
+        </v-card>
+      </v-col>
+      <v-col order="12">
+        <v-card
+          class="pa-2"
+        >
+          <ProfilGabzz/>
+        </v-card>
+      </v-col>
+      <v-col order="1">
+        <v-card
+          class="pa-2"
+        >
+          <ProfilKilian/>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-row no-gutters>
+      <v-col order="12">
+        <v-card>
+          <ProfilChris/>
+        </v-card>
+      </v-col>
+      <v-col order="1">
+        <v-card>
+          <ProfilSimon/>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
+
 <script>
 
-export default ({
-   name: 'About'
-})
+import ProfilElisa from '../components/ProfilElisa'
+import ProfilSimon from '../components/ProfilSimon'
+import ProfilChris from '../components/ProfilChris'
+import ProfilGabzz from '../components/ProfilGabzz'
+import ProfilKilian from '../components/ProfilKilian'
+
+
+
+
+
+
+export default {
+    components: {
+     ProfilElisa,
+     ProfilSimon,
+     ProfilGabzz,
+     ProfilKilian,
+     ProfilChris
+  
+     },
+  
+}
 </script>

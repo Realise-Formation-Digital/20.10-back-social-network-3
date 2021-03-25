@@ -1,26 +1,46 @@
 <template>
-    <div class="container">
-        <!-- login form -->
-        <div class="row mt-4">
-            <div class="col-6 offset-3">
-                <form action="#" @submit.prevent="handleLogin">
-                    <h3>Login</h3>
-                    <div class="form-row">
-                        <input type="email" name="email" class="form-control" v-model="formData.email" placeholder="Email Address">
-                    </div>
-                    <div class="form-row">
-                        <input type="password" name="password" class="form-control" v-model="formData.password" placeholder="Password">
-                    </div>
-                    <div class="form-row">
-                        <button type="submit" class="btn btn-primary">Login</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        
-    </div>
-</template>
+  <v-form v-model="valid" action="#" @submit.prevent="handleLogin">
+    <v-container>
+      <v-row>
+        <v-col
+          cols="12"
+          md="4"
+        >
+          <v-text-field
+            v-model="formData.email"
+            :rules="emailRules"
+            label="E-mail"
+            required
+          ></v-text-field>
+        </v-col>
 
+        <v-col
+          cols="12"
+          md="4"
+        >
+          <v-text-field
+            v-model="formData.password"
+            :rules="passwordRules"
+            :counter="10"
+            label="Mot de passe"
+            required
+          ></v-text-field>
+        </v-col>
+        <v-col
+          cols="12"
+          md="4"
+        >
+          <v-btn
+          :disabled="!valid"
+          color="success"
+          class="mr-4"
+          @click="submit"
+          >Login</v-btn>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-form>
+</template>
 <script>
 import axios from 'axios'
     export default {

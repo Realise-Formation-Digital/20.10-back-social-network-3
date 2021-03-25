@@ -19,16 +19,16 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $users = User::factory(5)->create();
-        $categories = Category::factory(4)->create();
+        $categories = Category::factory(6)->create();
 
-        $tutorials = Tutorial::factory(10)->make()
+        $tutorials = Tutorial::factory(20)->make()
         ->each(function ($tutorial) use ($users, $categories) {
             $tutorial->user_id = $users->random()->id;
             $tutorial->category_id = $categories->random()->id;
             $tutorial->save();
         });
 
-        Comment::factory(20)->make()
+        Comment::factory(40)->make()
         ->each(function ($comment) use ($tutorials, $users) {
             $comment->tutorial_id = $tutorials->random()->id;
             $comment->user_id = $users->random()->id;

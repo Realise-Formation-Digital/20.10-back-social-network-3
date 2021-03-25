@@ -1,10 +1,15 @@
-<!-- Footer.vue -->
 <template>
-    <footer class="sticky-footer">
-        <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-                <span>Copyright © Echo-munication 2021 @ realise</span>
-            </div>
-        </div>
-    </footer>
+  
+    <v-footer
+      fixed 
+      class="font-weight-medium"
+    >
+      <v-col
+        class="text-center"
+        cols="12"
+      >
+        {{ new Date().getFullYear() }} — Copyright © <strong>Echo'munication</strong> @ realise
+      </v-col>
+    </v-footer>
+  
 </template>
